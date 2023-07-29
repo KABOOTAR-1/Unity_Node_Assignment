@@ -710,7 +710,7 @@ MonoBehaviour:
   User_Name: {fileID: 218403962}
   Player_Score: {fileID: 66002326}
   InPut: {fileID: 1065710001}
-  highscore: {fileID: 988917663}
+  HighScore: {fileID: 988917665}
   ourPlayer: {fileID: 132348400}
 --- !u!4 &247983641
 Transform:
@@ -2166,7 +2166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb658104601dfb4f8caa70f02067e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HighScore: {fileID: 988917665}
 --- !u!1 &1322487453
 GameObject:
   m_ObjectHideFlags: 0

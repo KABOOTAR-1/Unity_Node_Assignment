@@ -19,15 +19,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject InPut;
     [SerializeField]
-    GameObject highscore;
+    TextMeshProUGUI HighScore;
     [SerializeField]
     PlayerMoment ourPlayer;
     TMP_InputField input;
     string message;
+    ResultData resultData;
     public void Start()
     {       
         player = new Player();
-        StartCoroutine(Client.Get(Tags.getUrl)); 
+      
+        StartCoroutine(Client.Get(Tags.getUrl));
+        Invoke(nameof(Highscore), 0.3f);
     }
     private void Update()
     {
@@ -39,10 +42,37 @@ public class GameManager : MonoBehaviour
        
     }
 
+    void Highscore()
+    {
+        HighScore.text = "High Score" + '\n';
+        resultData = new ResultData();
+        resultData = Client._resultData;
+        if (resultData != null && resultData.result != null)
+        {
+            if (resultData.result.Length > 0)
+            {
+                foreach (Player item in resultData.result)
+                {
+                    HighScore.text += item.user_name + ":" + item.score + "\n";
+                }
+            }
+            else
+            {
+                HighScore.text += "No Users";
+            }
+
+        }
+        else
+        {
+
+            Debug.Log("Failed to parse the result data.");
+        }
+        resultData= null;
+    }
     public void HideHighScore()
     {
         InPut.SetActive(true);
-        highscore.SetActive(false);
+        HighScore.gameObject.SetActive(false);
         
     }
   
@@ -75,7 +105,10 @@ public class GameManager : MonoBehaviour
 
     void Check()
     {
-        if (Client.I_okget||Client.I_okpost)
+        resultData=new ResultData();
+        resultData = Client._resultData;
+        bool okget = (resultData != null);
+        if (okget||Client.I_okpost)
         {
             User_Name.text = player.user_name;
             InputField_New.gameObject.SetActive(false);
@@ -87,6 +120,7 @@ public class GameManager : MonoBehaviour
             input.text = "";
             input.transform.Find("Text Area").transform.Find("Placeholder").GetComponent<TMP_Text>().text = message;
         }
+        resultData = null;
     }
 
     void CreatePlayer(string name,int score)

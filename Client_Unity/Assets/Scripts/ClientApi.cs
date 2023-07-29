@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 using System;
 public class ClientApi : MonoBehaviour
 {
-    public TextMeshProUGUI HighScore;
+    ResultData resultData;
+    public ResultData _resultData => resultData;
     private bool ok_post = false;
     public bool I_okpost => ok_post;
     private bool ok_get = false;
@@ -35,7 +36,6 @@ public class ClientApi : MonoBehaviour
                     //result data
                     var result = System.Text.Encoding.UTF8.GetString(ClientConnect.downloadHandler.data);
                     result = "{\"result\":" + result + "}";
-                    ResultData resultData;
                         try
                         {
                             var re= JsonUtility.FromJson<ResultData>(result);
@@ -48,31 +48,6 @@ public class ClientApi : MonoBehaviour
                             Debug.Log("This username does not exsists");
                         };
 
-                    HighScore.text = "High Score"+'\n';
-                    if (resultData != null && resultData.result != null)
-                    {
-                        if (resultData.result.Length > 0)
-                        {
-                            foreach (Player item in resultData.result)
-                            {
-                                HighScore.text += item.user_name + ":" + item.score + "\n";
-                            }
-                        }
-                        else
-                        {
-                            HighScore.text += "No Users";
-                        }
-                        if (!HighScore.gameObject.activeSelf)
-                        {
-                            ok_get = true;
-                        }
-
-                    }              
-                    else
-                    {
-                       
-                        Debug.Log("Failed to parse the result data.");
-                    }
 
                     //Debug.Log(result);
                 }
@@ -81,21 +56,18 @@ public class ClientApi : MonoBehaviour
                     Debug.Log("Couldn't get the data");
                 }
             }
-
+            //resultData = null;
             ClientConnect.Dispose();
         }
     }
 
-    [System.Serializable]
-    public class ResultData
-    {
-        public Player[] result;
-    }
+    
 
     public IEnumerator Post(string url, Player player)
     {
         var jsonData = JsonUtility.ToJson(player);
         Debug.Log(jsonData);
+        resultData = null;
 
         using (UnityWebRequest ClientCreate = new UnityWebRequest(url, "POST"))
         {
@@ -151,6 +123,7 @@ public class ClientApi : MonoBehaviour
     {
         var json = JsonUtility.ToJson(player);
         Debug.Log(json);
+        resultData = null;
 
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         using (var uploadHandler = new UploadHandlerRaw(bodyRaw)) // Use 'using' to dispose of the UploadHandlerRaw
