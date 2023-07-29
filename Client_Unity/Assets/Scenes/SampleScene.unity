@@ -705,9 +705,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Client: {fileID: 1197434618}
-  player:
-    user_name: 
-    score: 0
   InputField_New: {fileID: 1107319455}
   InputField_Old: {fileID: 861946911}
   User_Name: {fileID: 218403962}

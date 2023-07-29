@@ -5,17 +5,23 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    public ClientApi Client;
-    public Player player;
-    public TMP_InputField InputField_New;
-    public TMP_InputField InputField_Old;
-    public TextMeshProUGUI User_Name;
-    public TextMeshProUGUI Player_Score;
+    [SerializeField]
+    ClientApi Client;
+    Player player;
+    [SerializeField]
+    TMP_InputField InputField_New;
+    [SerializeField]
+    TMP_InputField InputField_Old;
+    [SerializeField]
+    TextMeshProUGUI User_Name;
+    [SerializeField]
+    TextMeshProUGUI Player_Score;
     [SerializeField]
     GameObject InPut;
     [SerializeField]
     GameObject highscore;
-    public PlayerMoment ourPlayer;
+    [SerializeField]
+    PlayerMoment ourPlayer;
     TMP_InputField input;
     string message;
     public void Start()
