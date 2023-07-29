@@ -1,7 +1,5 @@
 # Unity_Node_Assignment
 
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
-
 ## About
 
 Node_Server for Unity is a project that serves as an external server to store high scores and manage user accounts for a game built in Unity. The server is implemented in Node.js and utilizes MongoDB to store the data. The Unity client, written in C#, interacts with the server to handle user registration and high score management.
