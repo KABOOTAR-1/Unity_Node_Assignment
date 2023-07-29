@@ -26,9 +26,9 @@ To run this project locally, follow the instructions below:
 
 ### Prerequisites
 
-- Node.js 
+- Node.js (v18.12.1)
 - MongoDB 
-- Unity Game Engine 
+- Unity Game Engine (2021.3.20f1)
 
 ### Installation
 
@@ -55,22 +55,28 @@ To run this project locally, follow the instructions below:
 
       ```bash
       cd NodeJs_Server
-5. Open Unity:
-    Open Unity and start Game mode
+##  Open Unity: 
+ 1. Open UnityHub
+ -If UnityHub is not present download UnityHub
+ -Install Unity Version 2021.3.20f1
+ 2. Open the Game
+ - Open the game through UnityHub by clicking Open project and Add project from Disk
+ - Find the Client_Unity Folder in the Repo and select it to open the project in Unity
 
 
 ## Game Controls
 
+1. Game Start
 - At the start of the game a panel with top 5 highscores will be shown along with the username
 - Click Next to go to User_Registartion
 - If the User is new type the username in New_username input
 - If the User is registreted before enter teh username in exsisting username input
 - Click Submit below the respective InputField you typed the username
 
-2.Movement
+2. Movement
 - Use W,A,S,D or the arrows key to move the player up,down,left or right
 
-3.Objective
+3. Objective
 - Collect the diamonds to increase score and avoid the bombs
 - If a bomb is touced the game is over
 
