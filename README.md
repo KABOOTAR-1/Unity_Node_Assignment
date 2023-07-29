@@ -33,26 +33,26 @@ To run this project locally, follow the instructions below:
 ### Installation
 
 1. Clone the repository:
-
+   Clone the repositry by typing the command below in a terminal
    ```bash
    git clone https://github.com/KABOOTAR-1/Unity_Node_Assignment.git
 
 2. Install Dependencies:
-   
+     open the Unity_Node_Assignment folder and open the terminal and execute the below commands
       ```bash
       cd NodeJs_Server
       npm install
 
 4. Configuration:
-   Create a .env file in the server directory with the following content:
+   if env file is not there create a .env file in the server directory with the following content:
     
      ```bash
        PORT=4000
        MONGO_URI=mongodb+srv://xyz1233214321:godplan@cluster0.j5xz0ab.mongodb.net/
 
  5. Run the Server:
-    Start the NodeJs Server
-
+    Start the NodeJs Server by executing below commands
+   
       ```bash
         cd NodeJs_Server
         nodemon app.js
