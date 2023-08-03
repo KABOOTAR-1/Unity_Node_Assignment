@@ -27,8 +27,7 @@ public class GameManager : MonoBehaviour
     ResultData resultData;
     public void Start()
     {       
-        player = new Player();
-      
+        player = new Player();  
         StartCoroutine(Client.Get(Tags.getUrl));
         Invoke(nameof(Highscore), 0.3f);
     }

@@ -373,7 +373,6 @@
 "Assets/Scripts/DestroyObejct.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/GameOVer/GameReload.cs"
-"Assets/Scripts/JsonHelper.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/PlayerMoment.cs"
 "Assets/Scripts/ResultData.cs"
