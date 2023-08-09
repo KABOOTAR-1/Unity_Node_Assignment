@@ -11,7 +11,7 @@ require("dotenv").config();
 app.use(express.json());
 app.use(body_parser.json());
 //app.use(cors);
-app.use("/", router);
+app.use("/player", router);
 app.use(error_handler);
 
 const port = process.env.PORT || 4000;
